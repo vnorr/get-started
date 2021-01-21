@@ -1,5 +1,5 @@
 body {
-  background-color: #faf9f7;
+  background-color: #e8e0d9;
 }
 
 .step {
@@ -35,10 +35,33 @@ body {
 
 .step-content {
   height: 300px;
-  padding: 0 50px;
+  padding: 0 20px 0 50px;
+}
+
+.step-content-box {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  background-color: #faf9f7;
+  border-radius: 10px;
+  padding: 5px 10px;
+  max-width: 400px;
 }
 
 .step-container {
   border-left: 1px dotted gray;
   margin-left: 25px;
+}
+
+@media screen and (min-width: 992px) {
+  .step-container {
+    margin: 0 50%;
+  }
+
+  #step-wrap:nth-child(even) .step-content-box {
+    position: absolute;
+    left: -475px;
+  }
+
+  .step-content {
+    width: 400px;
+  }
 }

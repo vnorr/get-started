@@ -8,9 +8,9 @@ const useOnScreen = (ref: any) => {
   const observer = new IntersectionObserver(
     ([entry]) => {
       // Should not toggle when element leaves viewport after enter
-      // !entry.isIntersecting || setIntersecting(entry.isIntersecting);
+      !entry.isIntersecting || setIntersecting(entry.isIntersecting);
 
-      setIntersecting(entry.isIntersecting);
+      // setIntersecting(entry.isIntersecting);
     },
     { rootMargin: "0px 0px -40% 0px" }
   );
@@ -50,7 +50,7 @@ const Step = ({ title, description, id }: IStep) => {
   const isVisible = useOnScreen(ref);
 
   return (
-    <div ref={ref}>
+    <div ref={ref} id="step-wrap">
       <Transition in={isVisible} timeout={500}>
         {(state) => (
           <div className="step">
@@ -62,7 +62,7 @@ const Step = ({ title, description, id }: IStep) => {
               className="step-content"
             >
               <div className="step-content-number-box">{id}</div>
-              <div>
+              <div className="step-content-box">
                 <h3>{title}</h3>
                 <p>{description}</p>
               </div>
